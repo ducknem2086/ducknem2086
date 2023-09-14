@@ -1,10 +1,13 @@
 name: Update README
+
+  
 on:
   schedule:
     - cron: '*/10 * * * *'
   push:
     branches:
       - main
+
 
 jobs:
   update-readme:
@@ -22,7 +25,7 @@ jobs:
         run: |
           # Get the current date and time
 
-          CURRENT_DATETIME=$(date --date='TZ="Asia/Bangkok" date'  -u +"%d-%m-%Y  -  %H:%M")
+          CURRENT_DATETIME=$(date -u +"%d-%m-%Y - %H:%M")
 
           # Generate the new README content
           echo "# My Dynamic README" > README.md
@@ -33,5 +36,4 @@ jobs:
           git config user.email "actions@github.com"
           git add README.md
           git commit -m "Update README with current date and time"
-          sudo timedatectl set-timezone UTC
           git push --force
