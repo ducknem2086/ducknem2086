@@ -14,10 +14,18 @@ env:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Change TimeZone
+        uses: szenius/set-timezone@v1.2
+        with:
+          timezoneLinux: "Asia/Singapore"
+          timezoneMacos: "Asia/Singapore"
+          timezoneWindows: "Singapore Standard Time"
+      
       - name: Update README
         run: |
           # Get the current date and time
