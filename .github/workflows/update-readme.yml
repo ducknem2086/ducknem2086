@@ -16,18 +16,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set Timezone
-        uses: szenius/set-timezone@v1.2
-        with:
-          timezoneLinux: "Asia/Singapore"
-          timezoneMacos: "Asia/Singapore"
-          timezoneWindows: "Singapore Standard Time"
-      
+   
       - name: Update README
         run: |
           # Get the current date and time
 
-          CURRENT_DATETIME=$(date  -u +"%d-%m-%Y - %H:%M")
+          CURRENT_DATETIME=$(TZ="Asia/Bangkok" date  -u +"%d-%m-%Y - %H:%M")
 
           # Generate the new README content
           echo "# My Dynamic README" > README.md
