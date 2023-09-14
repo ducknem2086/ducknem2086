@@ -1,22 +1,29 @@
 name: Update README
-
 on:
-  schedule:
-    - cron: '*/1 * * * *'  # Runs every day at midnight UTC
+  push:
+    branches:
+      - main
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Update README
+      - name: Set Dynamic Content
+        id: set-content
         run: |
-          current_datetime=$(date +'%Y-%m-%d %H:%M:%S %Z')
-          sed -i 's/<!-- START:current-date-time -->.*<!-- END:current-date-time -->/<!-- START:current-date-time -->\nCurrent Date and Time: '"$current_datetime"'\n<!-- END:current-date-time -->/' README.md
+          # Get the current date and time in ISO 8601 format
+          CURRENT_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+      
+          # Replace the placeholder in the template README with the current date and time
+          sed -i "s/{{ DYNAMIC_CONTENT }}/$CURRENT_DATETIME/" README.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
           git add README.md
-          git commit -m "Update README with current date and time"
+          git commit -m "Update README with dynamic content"
           git push
-        env:
-          TZ: 'UTC'  # Set the timezone to UTC to ensure consistent formatting
