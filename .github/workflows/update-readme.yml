@@ -24,8 +24,8 @@ jobs:
           CURRENT_DATETIME=$(TZ="Asia/Bangkok" date  -u +"%d-%m-%Y - %H:%M")
 
           # Generate the new README content
-          echo "# My Dynamic README" > README.md
-          echo "This README is dynamically generated." >> README.md
+          echo "# Welcome , i'm Nem" > README.md
+          echo "This date time is dynamically generated." >> README.md
           echo "## Latest Update: $CURRENT_DATETIME" >> README.md
           # Commit and push the changes
           git config user.name "GitHub Actions"
