@@ -22,7 +22,7 @@ jobs:
         run: |
           # Get the current date and time
 
-          CURRENT_DATETIME=$(date --date='TZ="Asia/Bangkok" date' -u +"%d-%m-%Y - %H:%M")
+          CURRENT_DATETIME=$(date  -u +"%d-%m-%Y - %H:%M")
 
           # Generate the new README content
           echo "# My Dynamic README" > README.md
