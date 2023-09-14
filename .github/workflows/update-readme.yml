@@ -28,7 +28,6 @@ jobs:
           echo "# My Dynamic README" > README.md
           echo "This README is dynamically generated." >> README.md
           echo "## Latest Update: $CURRENT_DATETIME" >> README.md
-          export TZ=UTC
           # Commit and push the changes
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
