@@ -11,19 +11,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set Dynamic Content
-        id: set-content
+      - name: Update README
         run: |
-          # Get the current date and time in ISO 8601 format
+          # Get the current date and time
           CURRENT_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-      
-          # Replace the placeholder in the template README with the current date and time
-          sed -i "s/{{ DYNAMIC_CONTENT }}/$CURRENT_DATETIME/" README.md
 
-      - name: Commit and Push Changes
-        run: |
-          git config user.name "Github Actions"
+          # Generate the new README content
+          echo "# My Dynamic README\n" > README.md
+          echo "This README is dynamically generated.\n" >> README.md
+          echo "## Latest Update: $CURRENT_DATETIME\n" >> README.md
+
+          # Commit and push the changes
+          git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add README.md
-          git commit -am "Update README with dynamic content"
-          git push -u -f origin main
+          git commit -m "Update README with current date and time"
+          git push
