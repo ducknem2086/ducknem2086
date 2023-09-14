@@ -1,7 +1,7 @@
 name: Update README
 on:
   schedule:
-    - cron: '0,10,20,30,40,50 * * * *'
+    - cron: '*/10 * * * *'
   push:
     branches:
       - main
@@ -12,10 +12,16 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      
+      - name: Set UTC+8 Timezone
+        run: |
+          export TZ=Asia/Shanghai  # Set timezone to UTC+8 (Shanghai)
+          date  # Print the current date and time in UTC+8
 
       - name: Update README
         run: |
           # Get the current date and time
+          export TZ=UTC
           CURRENT_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
           # Generate the new README content
