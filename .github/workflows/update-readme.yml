@@ -22,6 +22,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
+          git config user.name "Github Actions"
+          git config user.email "actions@github.com"
           git add README.md
           git commit -m "Update README with dynamic content"
           git push --f
