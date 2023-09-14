@@ -2,7 +2,9 @@ name: Update README
 on:
   schedule:
     - cron: '0,10,20,30,40,50 * * * *'
-  
+  push:
+    branches:
+      - main
 
 jobs:
   update-readme:
