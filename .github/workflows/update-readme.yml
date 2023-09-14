@@ -8,6 +8,8 @@ on:
     branches:
       - main
 
+env:
+  TZ: "Asia/Bangkok"
 
 jobs:
   update-readme:
@@ -15,17 +17,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      
-      - name: Set GMT+7 Timezone
-        run: |
-          sudo timedatectl set-timezone Asia/Bangkok
-          date  # Print the current date and time in GMT+7
 
       - name: Update README
         run: |
           # Get the current date and time
 
-          CURRENT_DATETIME=$(date -u +"%d-%m-%Y - %H:%M")
+          CURRENT_DATETIME=$(date --date='TZ="Asia/Bangkok" date' -u +"%d-%m-%Y - %H:%M")
 
           # Generate the new README content
           echo "# My Dynamic README" > README.md
