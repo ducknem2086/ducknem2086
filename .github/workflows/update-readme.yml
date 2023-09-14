@@ -13,16 +13,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       
-      - name: Set UTC+8 Timezone
+      - name: Set GMT+7 Timezone
         run: |
-          export TZ=Asia/Shanghai  # Set timezone to UTC+8 (Shanghai)
-          date  # Print the current date and time in UTC+8
+          export TZ=Asia/Bangkok  # Set timezone to GMT+7 (ICT)
+          date  # Print the current date and time in GMT+7
 
       - name: Update README
         run: |
           # Get the current date and time
           export TZ=UTC
-          CURRENT_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          CURRENT_DATETIME=$(date -u +"%d-%m-%Y  -  %H:%M")
 
           # Generate the new README content
           echo "# My Dynamic README" > README.md
