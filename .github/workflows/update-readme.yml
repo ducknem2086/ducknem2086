@@ -15,7 +15,7 @@ jobs:
       
       - name: Set GMT+7 Timezone
         run: |
-          export TZ=Asia/Ho_Chi_Minh  # Set timezone to GMT+7 (ICT)
+          sudo timedatectl set-timezone Asia/Bangkok
           date  # Print the current date and time in GMT+7
 
       - name: Update README
@@ -33,5 +33,5 @@ jobs:
           git config user.email "actions@github.com"
           git add README.md
           git commit -m "Update README with current date and time"
-          export TZ=UTC
+          sudo timedatectl set-timezone UTC
           git push --force
