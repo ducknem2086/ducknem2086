@@ -21,7 +21,7 @@ jobs:
         run: |
           # Get the current date and time
 
-          CURRENT_DATETIME=$(TZ="Asia/Bangkok" date  -u +"%d-%m-%Y - %H:%M")
+          CURRENT_DATETIME=$(TZ="Asia/Bangkok" date  -u +"%d-%m-%Y")
 
           # Generate the new README content
           echo "# Welcome , i'm Nem" > README.md
