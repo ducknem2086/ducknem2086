@@ -3,7 +3,7 @@ name: Update README
   
 on:
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '*/60 * * * *'
   push:
     branches:
       - main
