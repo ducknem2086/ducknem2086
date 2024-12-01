@@ -1,2 +1,2 @@
 # Welcome , i'm Nem , from Ha Noi , Viet Nam
-## Latest Update: 30-11-2024
+## Latest Update: 01-12-2024
