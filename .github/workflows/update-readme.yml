@@ -24,7 +24,8 @@ jobs:
           CURRENT_DATETIME=$(TZ="Asia/Bangkok" date  -u +"%d-%m-%Y")
 
           # Generate the new README content
-          echo "# Welcome , i'm Nem , from Ha Noi , Viet Nam" > README.md
+          echo "# Welcome, i'm Nem, from Ha Noi, Viet Nam" > README.md
+          echo "## I'm a 'fullStackOverFlow' developer. I don't know code, but always using ChatGPT and Claude to coding, or more." >> README.md
           echo "## Latest Update: $CURRENT_DATETIME" >> README.md
           # Commit and push the changes
           git config user.name "GitHub Actions"
