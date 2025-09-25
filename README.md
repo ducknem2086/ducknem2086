@@ -1,3 +1,3 @@
 # Welcome, i'm Nem, from Ha Noi, Viet Nam
 I'm a 'fullStackOverFlow' developer. I don't know how to code, but I always use AI tools for coding and more.
-## Latest Update: 24-09-2025
+## Latest Update: 25-09-2025
