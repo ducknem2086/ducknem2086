@@ -1,3 +1,3 @@
 # Welcome, i'm Nem, from Ha Noi, Viet Nam
 I’m a vibe coder. I might not design the system, but I lead the AI to ship the code.
-## Latest Update: 11-06-2026
+## Latest Update: 12-06-2026
